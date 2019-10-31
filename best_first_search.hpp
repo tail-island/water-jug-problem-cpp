@@ -59,7 +59,7 @@ namespace water_jug_problem {
       visited.emplace(_game.initial_state());
 
       while (!std::empty(queue)) {
-        const auto node = queue.top(); queue.pop();  // キューが更新されるので順序が変わるかもしれないし、あと、std::vectorでキューを作っているのでデータ移動するかもしれないので、ここでpopしないとダメなはず……。
+        const auto node = queue.top(); queue.pop();  // キューが更新されるので順序が変わるかもしれないし、あと、std::vectorでキューを作っているのでデータ移動するかもしれないので、コピーしてpop()しないとダメなんじゃないかなぁと……。
 
         for (const auto& action: _game.legal_actions(node.state)) {
           const auto& next_state = _game.next_state(node.state, action);
