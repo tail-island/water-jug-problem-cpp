@@ -36,7 +36,7 @@ namespace water_jug_problem {
       visited.emplace(_game.initial_state());
 
       while (!std::empty(queue)) {
-        const auto& node = queue.front();  // queue.pop()する前にqueue.emplace()しているので、queueがデフォルトで使用するdequeの実装次第ではヤバイかも……。ちなみにRustだと、このコードはダングリング参照の危険性があるのでエラーになります。Rust良いよRust。
+        const auto& node = queue.front();  // queue.pop()する前にqueue.emplace()しているので、queueがデフォルトで使用するdequeの実装次第ではヤバイかも……。ちなみにRustだと、このコードはダングリング参照の危険性があるのでコンパイル・エラーになります。Rust良いよRust。
 
         for (const auto& action: _game.legal_actions(node.state)) {
           const auto& next_state = _game.next_state(node.state, action);
