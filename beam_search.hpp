@@ -34,6 +34,8 @@ namespace water_jug_problem {
     auto score(const state& state) const noexcept {
       auto result = 0;
 
+      // ここを良い感じに変えてみてください。
+
       for (const auto& pitcher: state) {
         if (pitcher % (_game.pitcher_capacities()[0] / 2) == 0) {
           result += 10;

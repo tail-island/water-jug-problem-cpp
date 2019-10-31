@@ -33,6 +33,8 @@ namespace water_jug_problem {
     auto score(const state& state, const std::vector<action>& answer) const noexcept {
       auto result = 0;
 
+      // ここを良い感じに変えてみてください。
+
       result -= std::size(answer);
 
       for (const auto& pitcher: state) {
